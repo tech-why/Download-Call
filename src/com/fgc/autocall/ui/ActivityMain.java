@@ -124,6 +124,7 @@ public class ActivityMain extends BaseActivity {
 		mSideMenu.init();
 		loadContactsData();
 	}
+
 	
 	private void loadContactsData()
 	{
