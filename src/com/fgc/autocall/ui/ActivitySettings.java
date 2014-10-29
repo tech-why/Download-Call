@@ -24,7 +24,7 @@ public class ActivitySettings extends BaseActivity{
 	
 	private RelativeLayout mLayoutTitleBar;
 	
-	
+	private EditText mEditipaddress;
 	private EditText mEditInternal;
 	private EditText mEditStartTime;
 	private EditText mEditSimTimeLenght;
@@ -33,6 +33,7 @@ public class ActivitySettings extends BaseActivity{
 	private ButtonTwoState mBtnStartTime;
 	private ButtonTwoState mBtnSimTimeLenght;
 	private ButtonTwoState mBtnWarnningNumber;
+	private ButtonTwoState mBtnIpaddress;
 	
 	
 	private ButtonTwoState mBtnPhone;
@@ -70,6 +71,8 @@ public class ActivitySettings extends BaseActivity{
 		mEditWarnningNumber = (EditText)findViewById(R.id.input_warnning_number);
 		mEditWarnningNumber.setEnabled(false);
 //		mEditWarnningNumber.setBackgroundResource(R.drawable.input_box_bg_g);
+		mEditipaddress=(EditText) findViewById(R.id.input_ip_address);
+		mEditipaddress.setEnabled(false);
 		
 		mBtnInternal = (ButtonTwoState)findViewById(R.id.btn_call_internal);
 		mBtnInternal.setTwoStateDrawble(R.drawable.btn_edit, R.drawable.btn_ok);
@@ -83,6 +86,10 @@ public class ActivitySettings extends BaseActivity{
 		mBtnWarnningNumber = (ButtonTwoState)findViewById(R.id.btn_warnning_number);
 		mBtnWarnningNumber.setTwoStateDrawble(R.drawable.btn_edit, R.drawable.btn_ok);
 		mBtnWarnningNumber.setOnTwoStateSwitchListener(mOnBtnEidtSwitchListener);
+		mBtnIpaddress=(ButtonTwoState) findViewById(R.id.btn_ip_address);
+		mBtnIpaddress.setTwoStateDrawble(R.drawable.btn_edit, R.drawable.btn_ok);
+		mBtnIpaddress.setOnTwoStateSwitchListener(mOnBtnEidtSwitchListener);
+		
 		
 		mImageSendMessage = (ImageViewTwoState)findViewById(R.id.img_send_message);
 		mImageSendMessage.setTwoStateDrawble(R.drawable.btn_checked_no, R.drawable.btn_checked_yes);
@@ -281,6 +288,24 @@ public class ActivitySettings extends BaseActivity{
 //					mEditWarnningNumber.setBackgroundResource(R.drawable.input_box_bg);
 				}
 				break;
+			case R.id.btn_ip_address:
+				Log.i(LOG_TAG, "click btn_ip_address");
+				if (isPositive)
+				{
+					mEditipaddress.setEnabled(false);
+//					mEditWarnningNumber.setBackgroundResource(R.drawable.input_box_bg_g);
+					String value = mEditipaddress.getText().toString();
+				
+						mApp.getConfigManager().savaIpAddress(value);
+				
+				
+				}
+				else
+				{
+					mEditipaddress.setEnabled(true);
+//					mEditWarnningNumber.setBackgroundResource(R.drawable.input_box_bg);
+				}
+				break;
 			case R.id.btn_phone:
 				Log.e("LOG_TAG","-----------btn_phone----");
 				new PhoneFragment();
@@ -318,6 +343,8 @@ public class ActivitySettings extends BaseActivity{
 		
 		String warnningNumber = mApp.getConfigManager().getWarnningPhoneNumber();
 		mEditWarnningNumber.setText(warnningNumber);
+		String ipaddress=mApp.getConfigManager().getIpAddress();
+		mEditipaddress.setText(ipaddress);
 	}
 	
 	@Override

@@ -87,12 +87,17 @@ public class ConfigManager {
 		Log.i(LOG_TAG, "saveWarnningPhoneNumber: " + phoneNumber);
 		Config.setValue(Config.CONFIG_KEY_WARNNING_PHONE_NUMBER, phoneNumber);
 	}
-	
 	public String getWarnningPhoneNumber()
 	{
 		return Config.getValue(Config.CONFIG_KEY_WARNNING_PHONE_NUMBER, null);
 	}
-	
+	public void savaIpAddress(String addressname){
+		Log.i(LOG_TAG, "saveip: " + addressname);
+		Config.setValue(Config.CONFIG_KEY_IP, addressname);
+	}
+	public String getIpAddress(){
+		return Config.getValue(Config.CONFIG_KEY_IP, null);
+	}
 	public void saveFunctionSendMessage(boolean isSend)
 	{
 		if (isSend)
