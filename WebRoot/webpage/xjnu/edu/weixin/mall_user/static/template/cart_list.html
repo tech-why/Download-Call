@@ -1,0 +1,20 @@
+<li itemid="{{itemId}}" cartid="{{cartId}}" isChange="{{isChange}}" class="list-group-item {{#if status}}select{{/if}}" price="{{itemSalePrice}}">
+	<div class="cart-img">
+        <a href="{{itemDetailsUrl}}"><img src={{itemImageUrl}}" /></a>
+        <span class="glyphicon hys-icon hys-icon-ok item-select"></span>
+    </div>
+	<h4>{{itemName}}</h4>
+	<p style="margin-bottom:5px; color:#f15a28;"><strong>微信价￥<em class="js-price" style="font-style:normal;">{{singleAllprice}}</em></strong></p>
+	<div class="input-group" style="width:140px;">
+        <span class="input-group-btn">
+            <button class="btn btn-default js-countSub" type="button"><span class="glyphicon glyphicon-minus"></span></button>
+        </span>
+        <input type="text" class="form-control js-count" style="font-size:18px; text-align:center" value="{{itemCount}}">
+        <span class="input-group-btn">
+            <button class="btn btn-default js-countAdd" type="button"><span class="glyphicon glyphicon-plus"></span></button>
+        </span>
+    </div>
+	<div cartid="{{cartId}}" class="del-btn">
+		<span class="glyphicon glyphicon-trash"></span>
+	</div>
+</li>

@@ -1,0 +1,15 @@
+@font-face {
+	font-family: icomoon;
+	src: url(fonts/icomoon.eot?#iefixdnyblm) format("embedded-opentype"), url(fonts/icomoon.woff?dnyblm) format("woff"), url(fonts/icomoon.ttf?dnyblm) format("truetype"), url(fonts/icomoon.svg?dnyblm#icomoon) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+[class^='icon-'] {
+	text-transform: none; line-height: 1; font-family: "icomoon"; font-style: normal; font-variant: normal; font-weight: normal; speak: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+[class*=' icon-'] {
+	text-transform: none; line-height: 1; font-family: "icomoon"; font-style: normal; font-variant: normal; font-weight: normal; speak: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+.icon-svg::before {
+	content: "\e600";
+}

@@ -1,0 +1,26 @@
+#cartList {}
+#cartList li {
+	position:relative;
+	margin-bottom:10px;
+	padding:5px 10px 5px 110px;
+	height:105px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	overflow:hidden;
+}
+#cartList li .cart-img {position:absolute; top:0; left:0; width:105px; height:105px;}
+#cartList li .cart-img img {display:block; width:105px; height:105px;}
+#cartList li h4 {margin-top:0; height:30px; margin-bottom:5px; font-size:14px; color:#4F4F4F;}
+#cartList li .del-btn {position:absolute; top:40px; right:0px; width:35px; height:35px; text-align:center; z-index:2;}
+#cartList li .del-btn span {width:100%; height:35px; font-size:20px; color:#FF842F;}
+#cartList li .cart-img .item-select {display:none; position:absolute; top:35px; left:5px; width:30px; height:30px; font-size:30px; color:#FFF;}
+#cartList li.select{background:#fff;}
+#cartList li.select .item-select {display:block;}
+#cartList li.select .js-del .del-arrow{left:0; border-color:transparent transparent transparent #DFF0D8;}
+.item {position:relative; margin-right:10px;}
+.item .item-info {position:absolute; left:0; bottom:0; margin:0; width:100%; height:22px; line-height:22px;}
+.item .item-info .mask {position:absolute; top:0; left:0; width:100%; height:100%; background:#000; opacity:.5; z-index:1;}
+.item .item-info .text {position:relative; color:#FFF; font-size:12px; z-index:2;}
+.owl-theme .owl-controls {margin:0;}
+.owl-theme .owl-controls .owl-page.active span {background:#ff7400;}

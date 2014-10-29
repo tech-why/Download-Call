@@ -1,0 +1,55 @@
+.yjs-tag {padding-bottom:5px; overflow:hidden;}
+.yjs-tag ul{ padding:0; margin:0 5px}
+.yjs-tag li{ background:url(static/images/yjs_02.png) left no-repeat; height:20px; background-size:10px auto; float:left; list-style:none; font-size:12px; margin:0 8px 8px 0;}
+.yjs-tag li span{ background:#e3e7e8; border-radius:0 4px 4px 0; padding:0 5px; line-height:21px;  margin-left:10px; display:block}
+.yjs-tag li  i{ color:#b6bcc2; vertical-align:-3px; padding:0 0 0 5px; font-size:14px; line-height:22px }
+.yjs-btngroup {list-style:none;  margin-right:-5px; margin:0 0px 16px 0px; padding:0; overflow:hidden;}
+.yjs-btngroup li {float:left; width:50%;}
+.yjsbtn{ background:#FFF; border:#e6e5e5 1px solid;border-radius:4px; width:100%; position:relative; height:34px; padding:5px 0}
+.yjsbtn .btn1{ width:50%; text-align:center; float:left; position:relative; line-height:22px;}
+.request ul{ padding:0; margin:0 0px 0 8px; height:250px; overflow-y:auto}
+.request li{ list-style:none; border-bottom:1px solid #e6e5e5; height:40px; line-height:40px;}
+
+.select img{ width:20px; height:auto; margin:0 10px 0 0  }
+.drugstore ul{padding:0; height:250px; overflow-y:auto}
+.drugstore li{  font-weight:normal;border-bottom:1px solid #e6e5e5; padding:12px 0; list-style:none;background:url(static/images/selectno.png) no-repeat right; background-size:20px auto;  }
+.drugstore li b {font-weight:normal;}
+.drugstore li span{height:28px; line-height:26px; color:#949ca5; font-size:12px; margin-bottom:5px;}
+.drugstore .current{background:url(static/images/select.png) no-repeat right; background-size:20px auto;  }
+.tabs {}
+.tabs ul {margin:0; padding:0; list-style:none; overflow:hidden; border-bottom:1px solid #e6e5e5}
+.tabs ul li {float:left; padding:0 10px; width:50%; }
+.tabs ul li .tabs-itmes {position:relative; padding:10px 0px 14px 0px;  width:100%; line-height:1; text-align:center; color:#34495e;}
+.tabs ul li span {position:absolute; left:0; bottom:0; width:100%; height:4px;  }
+
+.tabs ul li.current .tabs-itmes {color:#;}
+.tabs ul li.current span {background:#09b173;}
+.tabs ul li.current span i {display:block;}
+.tabs-content {position:relative; padding:5px 0px 0px 0px; width:100%;}
+.tabs-content ul {margin:0; padding:0; list-style:none;}
+.tabs-content ul li {display:none;}
+.tabs-content ul li.current {display:block;}
+.flbg{background:#f0f2f4; border-bottom:1px solid #e6e5e5; padding:8px 10px;}
+.fl{ height:100px; overflow:auto; width:100%; padding:0 8px 0 8px;}
+.fl p{ height:24px; line-height:26px; font-size:12px;}
+.panelA {
+	margin-bottom:20px;
+	background-color:#fff;
+	border:1px solid transparent;
+	border-radius:0px;
+	-webkit-box-shadow:0 0px 0px rgba(0, 0, 0, 0.05);
+	box-shadow:0 0px 0px rgba(0, 0, 0, 0.05);margin:0
+}
+.panel-default>.panel-heading {
+	color:#34495e;
+	background-color:#fff;
+	border-color:#e6e5e5; border-bottom:1px solid #e6e5e5; 
+}
+
+.panel-title{ font-size:14px;}
+.o2o_up{ background:url(static/images/up.png) no-repeat ; background-size:14px auto; width:20px; height:10px;}
+.o2o_down{ background:url(static/images/down.png) no-repeat ; background-size:14px auto; width:20px; height:10px;}
+.address {  background:url(static/images/selectno.png) no-repeat right top; background-size:20px auto; padding-bottom: 5px; margin-top: 0px }
+.address_current {  background:url(static/images/select.png) no-repeat right top; background-size:20px auto;  }
+.moren{ background:url(static/images/radio1.png) no-repeat left top; background-size:18px auto; padding-left:25px; height:20px; line-height:20px; margin-top:1px;}
+.moren_current{ background:url(static/images/radio2.png) no-repeat left top; background-size:18px auto;padding-left:25px; height:20px; line-height:20px; margin-top:1px; }

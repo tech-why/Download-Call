@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'hys';
+  src: url('../fonts/ehaoyao.eot');
+  src: url('../fonts/ehaoyao.eot?#iefix') format('embedded-opentype'), url('../fonts/ehaoyao.woff') format('woff'), url('../fonts/ehaoyao.ttf') format('truetype'), url('../fonts/ehaoyao.svg#ehaoyao') format('svg');
+}
+.hys-icon {font-family: 'hys'; font-style:normal;}
+.hys-icon-arrow-left:before {content: "\E609";}
+.hys-icon-cart:before {content: "\E607";}
+.hys-icon-addcart:before {content: "\E606";}
+.hys-icon-double:before {content: "\E603";}
+.hys-icon-list:before {content: "\E605";}
+.hys-icon-single:before {content: "\E60A";}
+.hys-icon-category:before {content: "\E608";}
+.hys-icon-popular:before {content: "\E601";}
+.hys-icon-hide:before {content: "\E60D";}
+.hys-icon-show:before {content: "\E60B";}
+.hys-icon-info-text:before {content: "\E600";}
+.hys-icon-info-image:before {content: "\E60C";}
+.hys-icon-ok:before {content:"\E60E";}
+.hys-icon-rmb:before {content:"￥";}
+.hys-icon-checkout:before {content:"\E610";}
+.hys-icon-home:before {content:"\E60F";}
+
+.hys-bg-nav {background:#29b572;}
+.hys-btn-cart {position:relative; display:inline-block; padding:0 30px 0 10px; height:25px; line-height:20px; border:1px solid #29b572; color:#29b572; font-size:16px; border-radius:25px;}
+.hys-btn-cart span a:link{ color:#29b572;  }
+.hys-btn-cart em{font-style:normal;}
+.hys-btn-cart i {position:absolute; top:-6px; right:-5px; width:32px; height:32px; line-height:34px; background:#29b572; font-size:18px; color:#FFF; border:0px solid #FFF; border-radius:50%; text-align:center;}

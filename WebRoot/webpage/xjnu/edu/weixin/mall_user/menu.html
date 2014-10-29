@@ -1,0 +1,19 @@
+
+<style type="text/css">
+	.menu {position:fixed; height:40px; bottom:25px; left:10px;}
+	.menu .nav ul {display:none; margin:4px 0 0 0; padding: 10px 10px 6px 47px; float:left; background:#FFF; height:42px; border-radius:22px; box-shadow:0px 0px 8px rgba(0, 0, 0, 0.3);overflow:hidden;}
+	.menu .nav li {border-left:1px solid #e7e7e7; padding:0 8px; float:left; line-height:22px; list-style:none;color:#34495e}
+	.menu .nav li a:hover,a:visited{color:#34495e;text-decoration:none;}
+	.menu .logo {width:50px; height:50px;border-radius:50%; border:2px solid #FFF; position:relative; background:url(static/images/07.jpg) no-repeat #41c281;position:absolute;box-shadow:0px 0px 8px rgba(0, 0, 0, 0.3); background-size:46px 46px;}
+</style>
+<div class="menu">
+    <div id="menuBtn" class="logo"></div>
+    <div class="nav">
+    	<ul style=" box-shadow:0px 0px 8px rgba(0, 0, 0, 0.3);" id="menuContent">
+     		<li><a href="/haoyao/index_menu/index.html" style="color:#34495e;text-decoration:none;">首页</a></li>
+     		<li><a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxab144e9dd399684a&redirect_uri=http://w.ehaoyao.com/haoyao/wchatTrade.do?method=myOrder&response_type=code&scope=snsapi_base&state=myOrder#wechat_redirect" style="color:#34495e;text-decoration:none;">我的订单</a></li>
+     		<li><a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxab144e9dd399684a&redirect_uri=http://w.ehaoyao.com/haoyao/wchatUserBinding.do?method=userlist&response_type=code&scope=snsapi_base&state=123#wechat_redirect" style="color:#34495e;text-decoration:none;">个人中心</a></li>
+     		<li ><a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxab144e9dd399684a&redirect_uri=http://w.ehaoyao.com/haoyao/index_menu/cart.html?response_type=code&scope=snsapi_base&state=1#wechat_redirect" style="color:#34495e;text-decoration:none;">购物车</a></li>
+    	</ul>
+    </div>
+</div>

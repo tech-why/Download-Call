@@ -1,0 +1,21 @@
+
+<div class="list-items">
+	<div class="list-items-pic" class="text-center">
+		<a href="{{itemDetailsUrl}}"><img src="{{ itemImageUrl }}" alt="" class="img-responsive" style="display:inline-block;"></a>
+	</div>
+	<div class="list-items-content">
+		<h5 style="color:#4F4F4F">{{ itemName }}</h5>
+		<div class="pull-left" style="position:relative;">
+			<p class="text-muted" style="margin:0;">人气:{{itemSaleCount}}</p> 
+			<p style="margin:0;">
+				<span class="text-muted" style="display:block; font-size:12px; text-decoration:line-through;">参考价:￥{{ itemOrigPrice }} {{productUnit}}</span>
+				<strong style="font-size:16px; color:#C50226;"><span style="font-size:12px;">微信价:￥</span>{{ itemSalePrice }} {{productUnit}}</strong>
+			</p>
+		</div>
+		<div class="list-items-btn pull-right {{itemCartClass}}" style="margin-top:12px;">
+			<div itemid="{{itemId}}" openid="{{openId}}" class="hys-btn-cart js-shopping">
+				<span>放入<em>购物车</em></span><i class="hys-icon hys-icon-addcart"></i>
+			</div>
+		</div>
+	</div>
+</div>

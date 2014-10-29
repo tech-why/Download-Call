@@ -1,0 +1,525 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0108)http://w.ehaoyao.com/haoyao/wchatTrade.do?method=myOrder&code=012c603e4b8debd32d40ade45f186f61&state=myOrder -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>我的订单</title>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+
+	<link href="static/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="static/style/wxsc.css" rel="stylesheet">
+    <link href="static/style/style.css" rel="stylesheet">
+      
+<style type="text/css">
+	.menu {position:fixed; height:40px; bottom:25px; left:10px;}
+	.menu .nav ul {display:none; margin:4px 0 0 0; padding: 10px 10px 6px 47px; float:left; background:#FFF; height:42px; border-radius:22px; box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.03); overflow:hidden;}
+	.menu .nav li {border-left:1px solid #e7e7e7; padding:0 8px; float:left; line-height:22px; list-style:none;color:#34495e}
+	.menu .nav li a:hover,a:visited{color:#34495e;text-decoration:none;}
+	.menu .logo {width:50px; height:50px;border-radius:50%; border:2px solid #FFF; position:relative; background:url(static/images/07.jpg) no-repeat #41c281;position:absolute;box-shadow:0px 0px 8px rgba(0, 0, 0, 0.3); background-size:46px 46px;}
+</style><script>
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		WeixinJSBridge.call('hideOptionMenu');
+		});
+	function qxOrder(tradeNo, event) {
+		event.stopPropagation();
+		var openid=document.getElementById("hiddenopenid").value;
+		if (window.confirm("确认取消吗")) {
+			$.ajax( {   
+			     type : "POST",   
+			     url : "/haoyao/wchatTrade.do?method=cancelTrade&tradeNo="+tradeNo,   
+			     dataType: "json",   
+			     success : function(data) { 
+			         if(data.update == "true"){ 
+			        	 $("#btnPay").attr("disabled","disabled");
+			        	 alert("取消成功！");
+			        	 window.location.reload(); 
+					}   
+			         else{
+			        	 $("#btnPay").removeAttr("disabled");
+			             alert("取消失败！");   
+			         }   
+			     },   
+			     error :function(){   
+			         alert("网络连接出错！");   
+			     }   
+			 }); 
+		}
+	}
+	function cxOrder(tradeNo) {
+		var openid=document.getElementById("hiddenopenid").value;
+		if (window.confirm("确认取消吗")) {
+			$.ajax( {   
+			     type : "POST",   
+			     url : "/haoyao/wchatTrade.do?method=cancelTrade&tradeNo="+tradeNo,   
+			     dataType: "json",   
+			     success : function(data) { 
+			         if(data.update == "true"){ 
+			        	 $("#btnPay").attr("disabled","disabled");
+			        	 alert("取消成功！");
+			        	 window.location.reload(); 
+					}   
+			         else{
+			        	 $("#btnPay").removeAttr("disabled");
+			             alert("取消失败！");   
+			         }   
+			     },   
+			     error :function(){   
+			         alert("网络连接出错！");   
+			     }   
+			 }); 
+		}
+	}
+	function scOeder(tradeNo, event) {
+		event.stopPropagation();
+		var openid=document.getElementById("hiddenopenid").value;
+		var teadelist=document.getElementById("teadelist").value;
+		if (window.confirm("确认删除吗")) {
+			$.ajax( {   
+			     type : "POST",   
+			     url : "/haoyao/wchatTrade.do?method=deleteTrade&tradeNo="+tradeNo,   
+			     dataType: "json",   
+			     success : function(data) { 
+			         if(data.update == "true"){ 
+			        	 $("#btnPay").attr("disabled","disabled");
+			        	 alert("删除成功！");
+			        	 /* window.location="http://w.ehaoyao.com/haoyao/wchatTrade.do?method=myOrder&openid="+openid; */
+			        	 window.location.href="/haoyao/wchatTrade.do?method=myOrder&openid="+openid;
+			        	 /* window.location='orderTwo.jsp';*/
+			        	 /* releaseEvents(eventType) 
+			        	   var tbRows = gel("teadelist").rows; //得到整个表格的行集合
+			        		alert("11111111111111111");
+                       	   for (var i = 0; i < tbRows.length; i++) {
+                            if (tbRows[i].childNodes[1].innerHTML == txtArray[1]) {
+                                gel("teadelist").deleteRow(i); //删除id相同的行
+                                break;
+                            } 
+                        }*/
+			         }   
+			         else{
+			        	 $("#btnPay").removeAttr("disabled");
+			             alert("删除失败！");   
+			         }   
+			     },   
+			     error :function(){   
+			         alert("网络连接出错！");   
+			     }   
+			 }); 
+		}
+	}
+	</script>
+	</head>
+
+
+
+
+<body style="color: rgb(52, 73, 94); background: rgb(236, 240, 241);">
+<div class="container">
+<div class="paixu">
+    <div class="btn-group pull-right">
+  <button type="button" class="btn btn-o2o3 btn-sm" style="width:110px;">好药师商城</button>
+  <button type="button" class="btn btn-o2o3 btn-sm dropdown-toggle" data-toggle="dropdown" style="height:30px;">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    
+    <!-- <li><a href="#">天猫</a></li>
+         <li class="divider"></li>
+    <li><a href="#">京东</a></li>
+    <li class="divider"></li> -->
+    <li><a href=""><span class="pull-right icon-uniE629" style="color:#57c6d7; font-size:16px"></span>好药师商城</a></li>
+	<li class="divider"></li>
+     <li><a href="http://w.ehaoyao.com/haoyao/weiXinTrades.do?method=wexinOrder&openId=o-gw8t7-2cpbrQh2x5_DTFK18E_Q&state=100">微信小店</a></li>
+         <li class="divider"></li>
+    <li><a href="http://w.ehaoyao.com/haoyao/wchatOutOrder.do?method=orderserve&openId=o-gw8t7-2cpbrQh2x5_DTFK18E_Q&state=0">我的药店</a></li>
+         <li class="divider"></li>
+   <li><a href="http://w.ehaoyao.com/haoyao/wxElseOrderApi.do?method=wxElseOrder&openId=o-gw8t7-2cpbrQh2x5_DTFK18E_Q&state=100">其它订单</a></li>
+    
+  </ul>
+</div>
+			
+<div class="btn-group pull-right" style="margin-right:10px;">
+  
+  
+  <button type="button" class="btn btn-o2o btn-sm" style="width:110px;" id="ssname"> 全&nbsp;&nbsp;部 </button>
+  <button type="button" class="btn btn-o2o  btn-sm dropdown-toggle" data-toggle="dropdown" style="height:30px;">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu" role="menu" id="ulId">
+    <li><a href="http://w.ehaoyao.com/haoyao/wchatTrade.do?method=myOrderbystate&openid=%27+o-gw8t7-2cpbrQh2x5_DTFK18E_Q+%27&state=100&ispay=100&buyway=3"><span class="pull-right icon-uniE629" style="color:#29b572;font-size:16px"></span>全部</a></li>
+      <li class="divider"></li>
+    <li><a href="http://w.ehaoyao.com/haoyao/wchatTrade.do?method=myOrderbystate&openid=%27+o-gw8t7-2cpbrQh2x5_DTFK18E_Q+%27&state=-4&ispay=2&buyway=1">货到付款</a></li>
+      <li class="divider"></li>
+    <li><a href="http://w.ehaoyao.com/haoyao/wchatTrade.do?method=myOrderbystate&openid=%27+o-gw8t7-2cpbrQh2x5_DTFK18E_Q+%27&state=-1&ispay=2&buyway=0" id="weifu">未付款</a></li>
+     <li class="divider"></li>
+     <li><a href="http://w.ehaoyao.com/haoyao/wchatTrade.do?method=myOrderbystate&openid=%27+o-gw8t7-2cpbrQh2x5_DTFK18E_Q+%27&state=-1&ispay=1&buyway=0">已付款</a></li>
+      <li class="divider"></li>
+    <li><a href="http://w.ehaoyao.com/haoyao/wchatTrade.do?method=myOrderbystate&openid=%27+o-gw8t7-2cpbrQh2x5_DTFK18E_Q+%27&state=3&ispay=1&buyway=0">待发货</a></li>
+     <li class="divider"></li>
+     <li><a href="http://w.ehaoyao.com/haoyao/wchatTrade.do?method=myOrderbystate&openid=%27+o-gw8t7-2cpbrQh2x5_DTFK18E_Q+%27&state=4&ispay=1&buyway=0">已发货</a></li>
+     <li class="divider"></li>
+     <li><a href="http://w.ehaoyao.com/haoyao/wchatTrade.do?method=myOrderbystate&openid=%27+o-gw8t7-2cpbrQh2x5_DTFK18E_Q+%27&state=0&ispay=1&buyway=0">已完成</a></li>
+     
+  </ul>
+  
+      
+      
+    
+
+    
+    
+      
+</div>
+       </div>
+       <ul class="pay-list" style="list-style:none; margin:0; padding:0">
+       <inpute type="hidden" id="teadelist" name="teadelist" value="[com.haoyao.core.vo.MyOrderVo@1dc1933f, com.haoyao.core.vo.MyOrderVo@faa1c5c, com.haoyao.core.vo.MyOrderVo@692be40c]">
+       <inpute type="hidden" id="teadelist" name="teadelist" value="">
+       <inpute type="hidden" id="teadelist" name="teadelist" value="">
+        
+		
+		
+		<li id="image" onclick="window.location.href=&#39;/haoyao/wchatTrade.do?method=orderComdetails&amp;openid=&#39;+&#39;o-gw8t7-2cpbrQh2x5_DTFK18E_Q&amp;tradeId=&#39;+&#39;13719&#39;">
+<div class="panel" style="margin-top:15px;">
+   <div class="panel-heading" style="border-bottom:1px solid #e6e5e5"><span class="pull-right red">
+   					
+   					
+					
+					
+					
+						
+							<p class="pull-right" style="color:#f15a28;">未付款</p>
+						
+					
+					
+					
+					
+					
+					
+					
+						
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+   </span>好药师商城 2014-08-01</div>
+   <div class="panel-body" style="padding-bottom:5px;">
+     <div class="row" style="padding:5px 0 5px 15px;">
+        
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/CCG026025G_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/CEG010003G_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/20140619102023423HYZ003002G_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/20140610101355675HWS012003C_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/201406091721309EZH004006G_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/wx20140312b_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/DZG003005G_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/CBK103004G_160.jpg" width="100%"></div>
+    		
+		
+       
+     </div>
+     <div class="media">
+     
+  	 	
+			
+     			<button type="button" class="btn btn-o2o2 pull-right" onclick="scOeder(13719, event)" style=" margin-top:15px;">删除订单</button>
+			
+			
+		
+	
+		
+			
+		
+	
+	
+		<p>总计：<span class="red" style="font-size:16px; padding-right:5px;">
+		 8 </span>件商品</p>
+        <p>    
+		总价： <span class="red">￥410.8</span></p>
+					
+	</div>
+   </div>
+  </div>
+  		</li>
+			
+		
+		<li id="image" onclick="window.location.href=&#39;/haoyao/wchatTrade.do?method=orderComdetails&amp;openid=&#39;+&#39;o-gw8t7-2cpbrQh2x5_DTFK18E_Q&amp;tradeId=&#39;+&#39;13718&#39;">
+<div class="panel" style="margin-top:15px;">
+   <div class="panel-heading" style="border-bottom:1px solid #e6e5e5"><span class="pull-right red">
+   					
+   					
+					
+					
+					
+						
+							<p class="pull-right" style="color:#f15a28;">未付款</p>
+						
+					
+					
+					
+					
+					
+					
+					
+						
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+   </span>好药师商城 2014-08-01</div>
+   <div class="panel-body" style="padding-bottom:5px;">
+     <div class="row" style="padding:5px 0 5px 15px;">
+        
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/20140610101355675HWS012003C_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/201406091721309EZH004006G_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/20140609163516346ZCS050377C_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/ZSA070203C_160.jpg" width="100%"></div>
+    		
+		
+       
+     </div>
+     <div class="media">
+     
+  	 	
+			
+     			<button type="button" class="btn btn-o2o2 pull-right" onclick="scOeder(13718, event)" style=" margin-top:15px;">删除订单</button>
+			
+			
+		
+	
+		
+			
+		
+	
+	
+		<p>总计：<span class="red" style="font-size:16px; padding-right:5px;">
+		 4 </span>件商品</p>
+        <p>    
+		总价： <span class="red">￥259.0</span></p>
+					
+	</div>
+   </div>
+  </div>
+  		</li>
+			
+		
+		<li id="image" onclick="window.location.href=&#39;/haoyao/wchatTrade.do?method=orderComdetails&amp;openid=&#39;+&#39;o-gw8t7-2cpbrQh2x5_DTFK18E_Q&amp;tradeId=&#39;+&#39;13717&#39;">
+<div class="panel" style="margin-top:15px;">
+   <div class="panel-heading" style="border-bottom:1px solid #e6e5e5"><span class="pull-right red">
+   					
+   					
+					
+					
+					
+						
+							<p class="pull-right" style="color:#f15a28;">未付款</p>
+						
+					
+					
+					
+					
+					
+					
+					
+						
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+   </span>好药师商城 2014-08-01</div>
+   <div class="panel-body" style="padding-bottom:5px;">
+     <div class="row" style="padding:5px 0 5px 15px;">
+        
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">3</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/20140619104113652ZDM010216C_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">2</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/20140609163516346ZCS050377C_160.jpg" width="100%"></div>
+    		
+		
+			
+        <div class="col-xs-4" style=" padding-right:15px; margin-bottom:15px;">
+         
+            	<div class="num">1</div><a href="http://w.ehaoyao.com/haoyao/orderTwo.jsp"></a><img src="static/images/PBA006539P_160.jpg" width="100%"></div>
+    		
+		
+       
+     </div>
+     <div class="media">
+     
+  	 	
+			
+     			<button type="button" class="btn btn-o2o2 pull-right" onclick="scOeder(13717, event)" style=" margin-top:15px;">删除订单</button>
+			
+			
+		
+	
+		
+			
+		
+	
+	
+		<p>总计：<span class="red" style="font-size:16px; padding-right:5px;">
+		 6 </span>件商品</p>
+        <p>    
+		总价： <span class="red">￥624.5</span></p>
+					
+	</div>
+   </div>
+  </div>
+  		</li>
+			
+			<input type="hidden" id="hiddenopenid" name="hiddenopenid" value="o-gw8t7-2cpbrQh2x5_DTFK18E_Q">
+</inpute></inpute></inpute></ul>
+</div>	
+	<script src="static/jquery/jquery-2.0.3.min.js" type="text/javascript"></script>	
+	<script src="static/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+	
+	<script src="static/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+<div class="menu">
+    <div id="menuBtn" class="logo"></div>
+    <div class="nav">
+    	<ul id="menuContent">
+     		<li><a href="http://w.ehaoyao.com/haoyao/index_menu/index.html" style="color:#34495e;text-decoration:none;">首页</a></li>
+     		<li><a href="http://w.ehaoyao.com/haoyao/wchatTrade.do?method=myOrder&code=012c603e4b8debd32d40ade45f186f61&state=myOrder#" style="color:#34495e;text-decoration:none;">我的订单</a></li>
+     		<li><a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxab144e9dd399684a&redirect_uri=http://w.ehaoyao.com/haoyao/wchatUserBinding.do?method=userlist&response_type=code&scope=snsapi_base&state=123#wechat_redirect" style="color:#34495e;text-decoration:none;">个人中心</a></li>
+     		<li><a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxab144e9dd399684a&redirect_uri=http://w.ehaoyao.com/haoyao/index_menu/cart.html?response_type=code&scope=snsapi_base&state=1#wechat_redirect" style="color:#34495e;text-decoration:none;">购物车</a></li>
+    	</ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+		getMenu();
+
+		function getMenu(){
+				$('#menuBtn').click(function(){
+					$('#menuContent').toggle();
+				});
+		};
+	</script>
+</body></html>

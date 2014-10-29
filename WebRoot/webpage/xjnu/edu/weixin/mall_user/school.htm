@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta http-equiv="pragma" content="no-cache" />
+	<title>选择小区</title>
+	<link rel="stylesheet"  href="static/style/base.css?1407174187">
+    <link rel="stylesheet" href="static/style/bootstrap.css">
+    <link rel="stylesheet" href="static/style/font-awesome.min.css">
+    <script src="static/script/jquery.min.js"></script>
+    <script src="static/script/bootstrap.min.js"></script>
+    <script src="static/script/common.js?1407174187"></script>
+    <script>
+    	function onBridgeReady(){
+		 	WeixinJSBridge.call('hideOptionMenu');
+		}
+		
+		if (typeof WeixinJSBridge == "undefined"){
+			if( document.addEventListener ){
+				document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+			}else if (document.attachEvent){
+				document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+				document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+			}
+		}else{
+			onBridgeReady();
+		}
+    </script>
+</head>
+<body class="bg" style="padding-bottom:10px;">
+	<div class="tip"></div>
+	<div class="container mtop10">
+        <div class="tab">
+        	<div class="tabs">
+                <a href="javascript:;" data-id="clubsearch" class="cur">搜索学校</a>
+                <a href="javascript:;" data-id="clubrecord">选择记录</a>
+            </div>
+            <div id="clubsearch">
+            	<div class="input-group">
+                <form class="formicon" onSubmit="return form();">
+                    <input type="search" class="form-control" placeholder="请输入学校名字以查找" name="title" id="keytitle">
+                    <i class="fa fa-times-circle" onClick="$('#keytitle').val('');$(this).hide()"></i>
+                </form>
+                </div>
+                <div id="addclub" class="hide">
+                    <h5 style="margin-top:10px; line-height:20px;" class="alert alert-warning alert-warning-border">
+                        您所查找的 “
+                        <strong></strong>
+                        ” 小区暂未开通服务!您可以在下方登记该小区的地址，微兔工作人员会尽快为此小区开通服务。
+                    </h5>
+                    <form id="form" method="post" action="/index.php?s=/wechat/index/addclub.htm">
+                        <div class="addr list-group form-horizontal panel-default">
+                            <div class="form-group list-group-item">
+                                <label class="col-xs-3 control-label text-muted">
+                                    小 区：
+                                </label>
+                                <div class="col-xs-9">
+                                    <input type="text" name="clubname" />
+                                </div>
+                            </div>
+                            <div class="form-group list-group-item">
+                                <label class="col-xs-3 control-label text-muted">
+                                    地 址：
+                                </label>
+                                <div class="col-xs-9">
+                                    <input type="text" name="address" />
+                                </div>
+                            </div>
+                        </div>
+                        <button style="margin-top:10px;" type="button" class="btn btn-fillet btn-success btn-submit btn-block btn-lg btn-shadow">
+                            登记小区
+                        </button>
+                    </form>
+                </div>
+        		<ul class="list-group clublist" id="clublist"></ul>
+            </div>
+            <div id="clubrecord" class="hide">
+            	            	<ul class="list-group clublist">
+                <li class="list-group-item" id="li-1082">
+						<a href="/index.php?s=/wechat/index/clubrecord/clubid/58.htm" data-id="1082" class="panel-title">嘉和园小区<i class="fa fa-angle-right"></i></a>
+                        <span class="fr delspan" data-id="1082">删除</span>
+					</li>
+					<li class="list-group-item" id="li-794">
+						<a href="/index.php?s=/wechat/index/clubrecord/clubid/75.htm" data-id="794" class="panel-title">印刷厂小区<i class="fa fa-angle-right"></i></a>
+                        <span class="fr delspan" data-id="794">删除</span>
+					</li><li class="list-group-item" id="li-793">
+						<a href="/index.php?s=/wechat/index/clubrecord/clubid/78.htm" data-id="793" class="panel-title">水利厅小区<i class="fa fa-angle-right"></i></a>
+                        <span class="fr delspan" data-id="793">删除</span>
+					</li><li class="list-group-item" id="li-147">
+						<a href="/index.php?s=/wechat/index/clubrecord/clubid/44.htm" data-id="147" class="panel-title">日月星光花园·月光小区<i class="fa fa-angle-right"></i></a>
+                        <span class="fr delspan" data-id="147">删除</span>
+					</li><li class="list-group-item" id="li-145">
+						<a href="/index.php?s=/wechat/index/clubrecord/clubid/139.htm" data-id="145" class="panel-title">煤炭小区<i class="fa fa-angle-right"></i></a>
+                        <span class="fr delspan" data-id="145">删除</span>
+					</li>                </ul>            </div>
+        </div>
+    </div>
+    <script src="js/jquery.touchy.js"></script>
+    <script>
+	var classlist = [{"id":"45","title":"\u4f18\u8bd7\u7f8e\u5730\u4e8c\u671f","pid":"20","status":"0","lat":"43.81632","lng":"87.647862"}];
+		var nohtml = '';
+		
+		function searchKey(key)
+		{
+			var html ='';
+			var flag = true ;
+			if(key)
+				flag = false ;
+			var keytext = new RegExp(key);
+			$.each(classlist,function(i) {
+				var title = classlist[i].title;
+				if( flag || keytext.test(title)){
+					html += '<li class="list-group-item">';
+					html += '	<a href="/wechat/index/clubrecord/clubid/'+classlist[i]['id']+'" class="panel-title">'+classlist[i]['title']+'<i class="fa fa-angle-right"></i></a>';
+					html += '</li>';
+				}
+			})
+			$('#clublist').html(html);
+		}
+		
+	$(document).ready(function(){
+		searchKey();
+	});
+	
+	$('input[name="title"]').on("input propertychange",function(){
+		$('#addclub').hide();
+		var key = $(this).val();
+		searchKey(key);
+	})
+	var options = {
+		enableHighAccuracy: true,
+	};
+	/*window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError,{timeout:10000});
+			function handleSuccess(position){
+		var lng = position.coords.longitude;
+		var lat = position.coords.latitude;
+		var html='';
+		$('.tip').html('');
+		$.each(classlist,function(i) {
+			var xy = GetDistance(lat,lng,classlist[i].lat,classlist[i].lng);
+			if(xy*1000<1000){
+				html += '<li class="list-group-item">';
+				html += '	<a href="/wechat/index/clubrecord/clubid/'+classlist[i]['id']+'" class="panel-title">'+classlist[i]['title']+'<i class="fa fa-angle-right"></i></a>';
+				html += '</li>';
+			}
+		})
+		nohtml = html;
+		if(html)
+		$('.loading').hide();
+		else
+		error('未找到你周边的小区,请手动搜索');
+		$('#clublist').html(html);
+	}*/
+	function form(){
+		if(!$('#clublist li').text()){
+			$('#addclub strong').text($('input[name="title"]').val());
+			$('input[name="clubname"]').val($('input[name="title"]').val())
+			$('#addclub').show();
+		}
+		return false;
+	}
+	function handleError(s){
+		error('无法获取你的位置,请手动搜索');
+	}
+	function Rad(d){
+       return d * Math.PI / 180.0;
+    }
+	function GetDistance(lat1,lng1,lat2,lng2){
+        var radLat1 = Rad(lat1);
+        var radLat2 = Rad(lat2);
+        var a = radLat1 - radLat2;
+        var  b = Rad(lng1) - Rad(lng2);
+        var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a/2),2) +
+        Math.cos(radLat1)*Math.cos(radLat2)*Math.pow(Math.sin(b/2),2)));
+        s = s *6378.137 ;
+        s = Math.round(s * 10000) / 10000;
+        //s=s.toFixed(4);
+        return s;
+    }
+	$('.btn-submit').click(function(){
+		loading();
+		var form = $('#form');
+		var target = form.attr('action');
+		var query = form.serialize();
+		$.post(target,query).success(function(data){
+			if(data){
+				if(data.status){
+					error(data.info,'alert-warning');
+					$('.btn-submit').attr("disabled", true).removeClass('btn-success').addClass('btn-gray');
+				}else{
+					error(data.info,'alert-danger',1);
+				}
+			}else{
+				error('保存地址失败!','alert-danger');
+			}
+		});
+		return false;
+	})
+	$('.tabs a').click(function(){
+		var id = $(this).attr('data-id');
+		$('#clubsearch,#clubrecord').hide();
+		$('.tabs a').removeClass('cur')
+		$('#'+id).show();
+		$(this).addClass('cur');
+	})
+	$('.delspan').click(function(){
+		var id = $(this).attr('data-id');
+		var target = '/wechat/index/delclub/id/'+id;
+		$.get(target).success(function(data){
+			if(data.status){
+				$('#li-'+id).remove();
+				error(data.info,'alert-danger');
+				if(!$('#clubrecord li').html()){
+					$('#clubrecord').html('<h5 style="margin-top:10px; line-height:20px;" class="alert alert-warning alert-warning-border">您还没有小区选择记录!</h5>')
+				}
+			}
+			else{
+				error(data.info,'alert-danger');
+			}
+		})
+	})
+	$(function(){
+		var handleTouchySwipe = function (e, $target, data) {
+			var id = $(this).attr('data-id');
+			if(data.direction=='left'){
+				event.preventDefault();
+				$(this).stop().animate({"margin-left":"-59px"},400);
+				$('#li-'+id).find('span').stop().animate({"right":"0"},400);
+			}
+			else if(data.direction=='right'){
+				event.preventDefault();
+				$(this).stop().animate({"margin-left":"0"},400);
+				$('#li-'+id).find('span').stop().animate({"right":"-59px"},400);
+			}
+		}   
+		$('.list-group-item a').bind('touchy-swipe', handleTouchySwipe);
+	});
+    </script>
+</body>
+</html>

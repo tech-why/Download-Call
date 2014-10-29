@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta http-equiv="pragma" content="no-cache" />
+	<title>365便利</title>
+	<link rel="stylesheet"  href="css/base.css?1407172124">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/common.js?1407172124"></script>
+    <script>
+    	function onBridgeReady(){
+		 	WeixinJSBridge.call('hideOptionMenu');
+		}
+		
+		if (typeof WeixinJSBridge == "undefined"){
+			if( document.addEventListener ){
+				document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+			}else if (document.attachEvent){
+				document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+				document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+			}
+		}else{
+			onBridgeReady();
+		}
+    </script>
+</head>
+<body class="bg">
+    <div class="cartfooter navbar-fixed-bottom">
+        <div class="panel-body panel-default">
+        	            <div class="col-xs-8">购物车商品总价 ¥ <span id="total">0.00</span></div>
+            <div class="col-xs-4 text-center btn-carts">购物车</div>        </div>
+    </div>
+    <div class="tip"></div>
+    <div class="mtop container">
+        <div class="input-group">
+            <form method="post" action="/index.php?s=/wechat/index/search.htm" onSubmit="return scannerInput();" class="formicon">
+                <input type="search" class="form-control" placeholder="请输入商品关键字" name="title" id="keytitle">
+                <i class="fa fa-times-circle" onClick="$('#keytitle').val('');$(this).hide()"></i>
+            </form>
+        </div>
+                <ul class="list-group clublist">
+        	<li class="list-group-item">
+                    <a href="/index.php?s=/wechat/index/shoplist/classid/11.htm" class="panel-title">
+                    	纯净水<i class="fa fa-angle-right"></i>
+                        <em>13</em>
+                    </a>
+                </li><li class="list-group-item">
+                    <a href="/index.php?s=/wechat/index/shoplist/classid/16.htm" class="panel-title">
+                    	茶饮咖啡<i class="fa fa-angle-right"></i>
+                        <em>22</em>
+                    </a>
+                </li><li class="list-group-item">
+                    <a href="/index.php?s=/wechat/index/shoplist/classid/15.htm" class="panel-title">
+                    	碳酸汽水<i class="fa fa-angle-right"></i>
+                        <em>15</em>
+                    </a>
+                </li><li class="list-group-item">
+                    <a href="/index.php?s=/wechat/index/shoplist/classid/70.htm" class="panel-title">
+                    	乳脂饮料<i class="fa fa-angle-right"></i>
+                        <em>106</em>
+                    </a>
+                </li><li class="list-group-item">
+                    <a href="/index.php?s=/wechat/index/shoplist/classid/13.htm" class="panel-title">
+                    	果蔬饮品<i class="fa fa-angle-right"></i>
+                        <em>54</em>
+                    </a>
+                </li><li class="list-group-item">
+                    <a href="/index.php?s=/wechat/index/shoplist/classid/85.htm" class="panel-title">
+                    	功能饮料<i class="fa fa-angle-right"></i>
+                        <em>16</em>
+                    </a>
+                </li><li class="list-group-item">
+                    <a href="/index.php?s=/wechat/index/shoplist/classid/12.htm" class="panel-title">
+                    	冲调饮品<i class="fa fa-angle-right"></i>
+                        <em>36</em>
+                    </a>
+                </li><li class="list-group-item">
+                    <a href="/index.php?s=/wechat/index/shoplist/classid/90.htm" class="panel-title">
+                    	雪糕冰淇淋<i class="fa fa-angle-right"></i>
+                        <em>78</em>
+                    </a>
+                </li>        </ul>    </div>
+    <script>
+		sessionStorage.shoplistpage = '';
+    	function scannerInput(){
+			var title = $('input[name="title"]').val();
+			if(!title){
+				error('请输入商品关键字');
+				return false;
+			}
+		}
+    </script>
+</body>
+</html>

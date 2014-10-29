@@ -1,0 +1,47 @@
+
+<div class="panel" style=" border-radius:0 0 4px 4px; border:0">
+	<div class="panel-body" style="padding:0 0 10px 0;">
+		<div class="product-picture">
+			<div id="picture" class="owl-carousel owl-theme">
+			    <!-- <div class="item"><img src="http://w.ehaoyao.com{{itemImageUrl}}" alt=""></div>
+			    {{#if itemImageUrlArray}}
+					{{#each itemImageUrlArray}}
+						 <div class="item"><img src="http://w.ehaoyao.com{{this}}" alt=""></div>
+			  		{{/each}}
+				{{/if}} -->
+			</div>
+		</div>
+		<h4 style="padding:5px; color:#34495e;">{{itemName}}</h4>
+		<div style="padding:0 5px; overflow:hidden;">
+			<div class="pull-left">
+				
+				<p style="margin:0; font-size:14px; color:#f15a28;"><strong>微信价<span style="font-size:18px">￥{{itemSalePrice}} {{productUnit}}</span></strong><span class="text-muted" style="margin:0 0 0 5px; text-decoration:line-through;">市场价￥{{itemOrigPrice}} {{productUnit}}</span></p>
+                <p class="text-muted" style="margin:5px 0 0; ;">库存:{{stockNum}}</p>
+                <p class="text-muted" style="margin:5px 0 0; ;">销量:{{saleCount}}</p>
+			</div>
+			<div class="list-items-btn pull-right text-right" style="margin:10px 5px 0 0;">
+				<!-- <div itemid="{{itemId}}" class="hys-btn-cart js-shopping">
+					<span>放入</span><i class="hys-icon hys-icon-cart"></i>
+				</div><br /> -->
+				<div itemid="{{itemId}}" class="hys-btn-cart js-buy">
+					<span style="font-size:12px; ">放入购物车</span><i class="icon-uniE632" style="font-size:20px;"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="panel product-info">
+	<div class="panel-body" style="padding:10px;">
+		<h4><span><i class="glyphicon hys-icon hys-icon-info-text"></i>&nbsp;商品描述</span></h4>
+		<div class="detail-info">{{{description}}}</div>
+	</div>
+</div>
+<!-- <div class="panel product-info">
+	<div class="panel-body" style="padding:0px;">
+		<h4 id="showImageInfo" style="padding:10px; overflow:hidden;">
+			<span class="pull-left"><i class="glyphicon hys-icon hys-icon-info-image"></i>&nbsp;图文介绍</span>
+			<span class="pull-right" style="font-size:12px;">点击展开&nbsp;<i class="glyphicon hys-icon hys-icon-hide" style="font-size:24px; vertical-align: -4px;"></i></span>
+		</h4>
+		<div id="imageInfo" style="display:none;"></div>
+	</div>
+</div> -->

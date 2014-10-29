@@ -1,0 +1,27 @@
+<input type="hidden" id="hiddenaddressdef2408" name="hiddenaddressdef2408" value="2">
+	<div id="div{{addressId}}" class="panel" style="margin-top:15px;">
+		<div id="updateaddressid2408">
+			<div class="panel-body" style="padding-bottom:0px;border-bottom: 1px solid #e6e5e5;">
+				<div class="media"  style=" padding-bottom:5px; margin-top:0px">
+					<p>收货人姓名：{{contact}}</p>
+					<p>手&nbsp;&nbsp;机&nbsp;&nbsp;号&nbsp;&nbsp;&nbsp;：{{phoneNumber}}</p>
+					<p>收货地址&nbsp;&nbsp;&nbsp;：{{address}}</p>
+					<input type="hidden" id="{{addressId}}" name="{{addressId}}" value="ggg">
+				</div>
+			</div>
+			<div class="panel-body" style="padding-bottom:15px; padding-top:10">
+				<div class="media" >
+					<span class="pull-right">
+						<i class="icon-uniE602 green" style="font-size:16px;vertical-align:-2px; padding-right:5px;" onclick="deladd({{addressId}})">
+						</i>删除
+					</span>
+					<span onclick="updateaddress(2408)" class="pull-right" data-toggle="modal" data-target="#editAddresss">
+						<i class="icon-uniE623 green" style="font-size:16px;vertical-align:-2px; padding-right:5px;"></i>编辑
+					</span>
+					<span onclick="updateaddress(2408)" class="pull-right" data-toggle="modal" data-target="#editAddresss">
+						<i class="icon-uniE623 green" style="font-size:16px;vertical-align:-2px; padding-right:5px;"></i>选择
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>

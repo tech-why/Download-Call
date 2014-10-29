@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta http-equiv="pragma" content="no-cache" />
+	<title>日月星光花园·月光小区</title>
+	<link rel="stylesheet"  href="static/style/base.css?1407174187">
+    <link rel="stylesheet" href="static/style/bootstrap.css">
+    <link rel="stylesheet" href="static/style/font-awesome.min.css">
+    <script src="static/script/jquery.min.js"></script>
+    <script src="static/script/bootstrap.min.js"></script>
+    <script src="static/script/common.js?1407174187"></script>
+    <script>
+    	function onBridgeReady(){
+		 	WeixinJSBridge.call('hideOptionMenu');
+		}
+		
+		if (typeof WeixinJSBridge == "undefined"){
+			if( document.addEventListener ){
+				document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+			}else if (document.attachEvent){
+				document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+				document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+			}
+		}else{
+			onBridgeReady();
+		}
+    </script>
+</head>
+<body class="bg">
+	<div class="cartfooter navbar-fixed-bottom">
+        <div class="panel-body panel-default">
+            <div class="col-xs-8">在此学校共有<span>2</span>家商铺</div>
+            <div class="col-xs-4 text-center"><a href="/index.php?s=/wechat/index/club.htm">更换学校</a></div>
+        </div>
+    </div>
+    <div class="mtop container">
+        <ul class="media-list businesslist">
+            <li class="media panel panel-body">
+                                <div class="media-body">
+                    <h5 class="media-heading">365便利</h5>
+                    <h5 class="text-muted">营业时间：07:30 - 02:00                    	
+                                                
+                    </h5>
+                </div>
+                <div class="row" style="border:0"></div>
+                <div class="row">
+                    <div class="col-xs-6"><a class="btn-block link text-center" href="tel:8808809"><i class="fa fa-phone-square"></i> 电话购物</a></div>
+                        <div class="col-xs-6"><a class="btn-block link text-center bl" href="/index.php?s=/wechat/index/shopclass/webid/15.htm"><i class="fa fa-cube"></i> 在线购物</a></div>
+                                        </div>
+            </li>
+			<li class="media panel panel-body">
+                                <div class="media-body">
+                    <h5 class="media-heading">大富家超市</h5>
+                    <h5 class="text-muted">营业时间：09:30 - 23:30                    	
+                                                	（<font color="#FF5F5F">已打烊</font>）                        
+                    </h5>
+                </div>
+                <div class="row" style="border:0"></div>
+                <div class="row">
+                                            <div class="col-xs-6"><a class="text-muted btn-block text-center" href="javascript:void(0);"><i class="fa fa-phone-square"></i> 电话购物</a></div>
+                        <div class="col-xs-6"><a class="text-muted btn-block text-center bl" href="javascript:void(0);"><i class="fa fa-cube"></i> 在线购物</a></div>                </div>
+            </li>        
+		</ul>    
+	</div>
+    <script>
+    	function image(url){
+			WeixinJSBridge.invoke('imagePreview',{ 'current':'http://'+window.location.host+url, 'urls':['http://'+window.location.host+url]} );   
+		}
+    </script>
+</body>
+</html>

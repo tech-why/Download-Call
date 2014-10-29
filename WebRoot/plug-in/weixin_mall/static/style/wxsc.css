@@ -1,0 +1,217 @@
+@charset "utf-8";
+/* CSS Document */
+@media(min-width:768px) {
+.container {
+width:640px
+}
+}
+@media(min-width:992px) {
+.container {
+width:640px
+}
+}
+@media(min-width:1200px) {
+.container {
+width:640px
+}
+}
+
+
+ .col-xs-4 {
+	position:relative;
+	min-height:1px;
+	padding-right:4px;
+	padding-left:0px
+}
+
+.form-control:focus {
+	-webkit-tap-highlight:none;
+	border-color: #ccc;
+	outline: none;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+
+
+
+ .col-xs-a,  col-xs-b{
+	position:relative;
+	min-height:1px;
+	padding-right:0px;
+	padding-left:0px;
+}
+
+.col-xs-a, .col-xs-b {
+	float:left
+}
+
+.col-xs-a, .col-xs-b img{ border-top:3px solid #fff; border-right:3px solid #fff;}
+.col-xs-a{ width:75%; }
+
+.col-xs-b{ width:25%}
+.col-xs-c{ width:100%;position:relative;min-height:1px;padding-right:0px;padding-left:0px;float:left}
+
+.panelA {
+	margin-bottom:20px;
+	background-color:#fff;
+	border:1px solid transparent;
+	border-top:1px solid #e6e5e5;
+	border-radius:0px;
+	-webkit-box-shadow:0 0px 1px rgba(0, 0, 0, 0.05);
+	box-shadow:0 0px 0px rgba(0, 0, 0, 0.05); margin:0 -15px;
+}
+
+
+
+.btn-o2o {
+	color: #fff;
+	background-color: #29b572;
+	border-color: #22a862;
+	
+}
+.btn-o2o:hover, .btn-o2o:focus, .btn-o2o:active, .btn-o2o.active, .open .dropdown-toggle.btn-o2o {
+	color: #fff;
+	background-color: #08cd52;
+	border-color: #22a862;
+	
+}
+.btn-o2o:active, .btn-o2o.active, .open .dropdown-toggle.btn-o2o {
+	background-image: none
+}
+.btn-o2o.disabled, .btn-o2o[disabled], fieldset[disabled] .btn-o2o, .btn-o2o.disabled:hover, .btn-o2o[disabled]:hover, fieldset[disabled] .btn-o2o:hover, .btn-o2o.disabled:focus, .btn-o2o[disabled]:focus, fieldset[disabled] .btn-o2o:focus, .btn-o2o.disabled:active, .btn-o2o[disabled]:active, fieldset[disabled] .btn-o2o:active, .btn-success.disabled.active, .btn-o2o[disabled].active, fieldset[disabled] .btn-o2o.active {
+	background-color: #5cb85c;
+	border-color: #22a862;
+	
+}
+.btn-o2o .badge {
+	border-color: #22a862;
+	color: #5cb85c;
+	background-color: #fff
+}
+
+.btn-o2o2 {
+	color: #fff;
+	background-color:#f15a28;
+	
+}
+.btn-o2o2:hover, .btn-o2o2:focus, .btn-o2o2:active, .btn-o2o2.active, .open .dropdown-toggle.btn-o2o2 {
+	color: #fff;
+	background-color: #f56e32;
+	
+}
+.btn-o2o2:active, .btn-o2o2.active, .open .dropdown-toggle.btn-o2o2 {
+	background-image: none
+}
+.btn-o2o2.disabled, .btn-o2o2[disabled], fieldset[disabled] .btn-o2o, .btn-o2o.disabled:hover, .btn-o2o[disabled]:hover, fieldset[disabled] .btn-o2o:hover, .btn-o2o.disabled:focus, .btn-o2o[disabled]:focus, fieldset[disabled] .btn-o2o2:focus, .btn-o2o2.disabled:active, .btn-o2o[disabled]:active, fieldset[disabled] .btn-o2o:active, .btn-success.disabled.active, .btn-o2o[disabled].active, fieldset[disabled] .btn-o2o.active {
+	background-color: #5cb85c;
+	
+}
+.btn-o2o2 .badge {
+	color: #5cb85c;
+	background-color: #fff
+}
+
+
+
+.btn-o2o3 {
+	color:#fff;
+	background-color:#39b3d7;
+	border-color:#2eaac8
+	
+}
+.btn-o2o3:hover, .btn-o2o3:focus, .btn-o2o3:active, .btn-o2o3.active, .open .dropdown-toggle.btn-info {
+	color:#fff;
+	background-color:#5bc0de;
+	border-color:#2eaac8
+}
+.btn-o2o3:active, .btn-o2o3.active, .open .dropdown-toggle.btn-o2o3 {
+	background-image:none;color:#fff;
+}
+.btn-o2o3.disabled, .btn-o2o3[disabled], fieldset[disabled] .btn-o2o3 .btn-o2o3.disabled:hover, .btn-o2o3[disabled]:hover, fieldset[disabled] .btn-o2o3:hover, .btn-o2o3.disabled:focus, .btn-o2o3[disabled]:focus, fieldset[disabled] .btn-o2o3:focus, .btn-o2o3.disabled:active, .btn-o2o3[disabled]:active, fieldset[disabled] .btn-o2o3:active, .btn-o2o3.disabled.active, .btn-o2o3[disabled].active, fieldset[disabled] .btn-o2o3.active {
+	background-color:#5bc0de;
+	border-color:#2eaac8;color:#fff;
+}
+.btn-o2o3 .badge {
+	color:#fff;
+	background-color:#fff
+}
+
+
+.navyuan1{border-radius:50%; width:46px; height:46px;  line-height:52px; font-size:24px;background:#fc825a; margin-left:auto; margin-right:auto; margin-bottom:7px  }
+.navyuan1 a:hover{border-radius:50%; width:46px; height:46px;  line-height:46px; font-size:20px;background:#e27551; display:block}
+
+.navyuan2{border-radius:50%; width:46px; height:46px;  line-height:52px; font-size:24px;background:#57c8d9; margin-left:auto; margin-right:auto; margin-bottom:7px}
+.navyuan2 a:hover{border-radius:50%; width:46px; height:46px;  line-height:46px; font-size:20px;background:#4eb4c3; display:block}
+
+.navyuan3{border-radius:50%; width:46px; height:46px;  line-height:52px; font-size:24px;background:#41c27f; margin-left:auto; margin-right:auto;margin-bottom:7px }
+.navyuan3 a:hover{border-radius:50%; width:46px; height:46px;  line-height:46px; font-size:20px;background:#3aae72; display:block}
+
+.navyuan4{border-radius:50%; width:46px; height:46px;  line-height:52px; font-size:24px;background:#9b8de3; margin-left:auto; margin-right:auto;margin-bottom:7px }
+.navyuan4 a:hover{border-radius:50%; width:46px; height:46px;  line-height:46px; font-size:20px;background:#8b7fcc; display:block}
+
+
+.list_yuan1{border-radius:50%; width:44px; height:44px;  line-height:50px; font-size:24px;   }
+
+
+.cuxiao{}
+.cuxiao ul{}
+.cuxiao li{ width:33.33%; border:1px solid #e6e5e5; }
+
+
+.green{ color:#09b173}
+.red{ color:#f15a28}
+.row{position:relative}
+
+.hot{position:absolute; width:100%;background:rgba(0, 0, 0, 0.5); height:24px; line-height:24px; float:left ; bottom:0 ;}
+.hot2{position:absolute; width:100%;background:rgba(0, 0, 0, 0.5); height:24px; line-height:24px; float:left ; bottom:0px ; border-right:2px solid #fff; }
+.hotbg{position:absolute; width:10px;background:#FFF; height:24px;  float:right ; bottom:18px ;}
+.hot.boder{border-right:10px solid #FFF}
+.hot3{position:absolute; width:100%; height:24px; line-height:24px; float:left ; }
+
+.time{ margin-left:auto; margin-right:auto; width:72px; margin-top:5px;}
+.timebg{ background:#5e6263; color:#FFF; padding:1px; margin:0 0 0 1px; font-size:10px; float:left; line-height:14px;}
+.timebg2{ padding:1px; margin:0 0 0 1px; font-size:10px; float:left; line-height:12px;}
+
+
+.list_boder{ margin-bottom:0px;
+	background-color:#fff;
+	border:1px solid transparent;
+	border-bottom:1px solid #e6e5e5;
+	border-radius:0px;
+	-webkit-box-shadow:0 0px 1px rgba(0, 0, 0, 0.05);
+	box-shadow:0 0px 0px rgba(0, 0, 0, 0.05); margin:0 -15px;}
+
+
+
+.menu{ position:absolute;  height:40px; bottom:25px; left:15px; }
+.menu .nav ul{ margin:4px 0 0 0; padding: 6px 10px 6px 42px; float:left; background:#FFF; height:42px; border-radius:22px; box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.07);}
+.menu .nav li{ border-left:1px solid #e7e7e7; padding:0 10px; float:left; line-height:28px; list-style:none;}
+.menu .logo{ width:50px; height:50px;border-radius:50%; border:2px solid #FFF; position:relative; background:url(../images/07.jpg) no-repeat;position: absolute;box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.07); background-size:46px 46px;}
+
+.goto{ line-height:45px; color:#34495e; font-size:18px;text-decoration:none;}
+A.goto:hover{ text-decoration:none;line-height:45px; color:#34495e; font-size:18px;}
+
+.form-controlA{
+	
+	border-radius:0px;
+	border:1px solid #FFF;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0);
+	box-shadow:inset 0 0px 0px rgba(0, 0, 0, 0);
+-webkit-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+.money-btngroup {list-style:none;  margin-right:-5px; margin:0 0px 16px 0px; padding:0; overflow:hidden;}
+.money-btngroup li {float:left; width:50%;}
+
+.chongzhi li{ line-height:28px; color:#41c27f; }
+
+
+.paixu{margin-left:-5px; margin-right:-5px; padding:15px 0; width:100%; height:45px;}
+.num{position:absolute; width:20px;  height:20px; line-height:18px;  bottom:-5px ; right:10px;border-radius:50%; border:1px solid  #29b572; background:#FFF; color:#29b572; text-align:center}
+
+.addradio { float:left; margin:-1px 5px 0 0}
+.addradio img{ width:18px; }
