@@ -15,6 +15,8 @@ public class Config {
 	static public final String CONFIG_KEY_FUNCTION_DOWNLOAD = "function_download";
 	static public final String CONFIG_VALUE_YES = "yes";
 	static public final String CONFIG_VALUE_NO = "no";
+	//≈‰÷√ip
+	static public final String CONFIG_KEY_IP="ip_address";
 	
 	public static void initConfig(Context context){
 		if(FileConfig.Instance() == null)
