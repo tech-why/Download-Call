@@ -98,6 +98,12 @@ public class ConfigManager {
 	public String getIpAddress(){
 		return Config.getValue(Config.CONFIG_KEY_IP, null);
 	}
+	public void saveSelectUser(String username){
+		Config.setValue(Config.CONFIG_KEY_USER, username);
+	}
+	public String getSelectUser(){
+		return Config.getValue(Config.CONFIG_KEY_USER, null);
+	}
 	public void saveFunctionSendMessage(boolean isSend)
 	{
 		if (isSend)

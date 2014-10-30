@@ -2,19 +2,24 @@ package com.fgc.autocall.ui;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
+
 import com.fax.utils.view.RadioGroupStateFragmentBinder;
 import com.fgc.autocall.R;
 import com.fgc.autocall.Tools.StringTools;
 import com.fgc.autocall.Tools.Tools;
+import com.fgc.autocall.Tools.getData;
 import com.fgc.autocall.ui.component.ButtonTwoState;
 import com.fgc.autocall.ui.component.ImageViewTwoState;
 
@@ -28,12 +33,13 @@ public class ActivitySettings extends BaseActivity{
 	private EditText mEditStartTime;
 	private EditText mEditSimTimeLenght;
 	private EditText mEditWarnningNumber;
+	private Spinner mSpinnerSelectUser;
 	private ButtonTwoState mBtnInternal;
 	private ButtonTwoState mBtnStartTime;
 	private ButtonTwoState mBtnSimTimeLenght;
 	private ButtonTwoState mBtnWarnningNumber;
 	private ButtonTwoState mBtnIpaddress;
-	
+	private ButtonTwoState mBtnSelectUser;
 	
 	private ButtonTwoState mBtnPhone;
 	private ButtonTwoState mBtnDownload;
@@ -41,7 +47,7 @@ public class ActivitySettings extends BaseActivity{
 	private ImageViewTwoState mImageSendMessage;
 	private ImageViewTwoState mImageCall;
 	private ImageViewTwoState mImageDownload;
-	
+	private List<String> userlist=getData.getUserlist();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +79,11 @@ public class ActivitySettings extends BaseActivity{
 		mEditipaddress=(EditText) findViewById(R.id.input_ip_address);
 		mEditipaddress.setEnabled(false);
 		
-		mBtnInternal = (ButtonTwoState)findViewById(R.id.btn_call_internal);
+		mSpinnerSelectUser=(Spinner) findViewById(R.id.select_user);
+		mSpinnerSelectUser.setEnabled(false);
+		
+		
+		mBtnInternal= (ButtonTwoState)findViewById(R.id.btn_call_internal);
 		mBtnInternal.setTwoStateDrawble(R.drawable.btn_edit, R.drawable.btn_ok);
 		mBtnInternal.setOnTwoStateSwitchListener(mOnBtnEidtSwitchListener);
 		mBtnStartTime = (ButtonTwoState)findViewById(R.id.btn_start_time);
@@ -88,7 +98,9 @@ public class ActivitySettings extends BaseActivity{
 		mBtnIpaddress=(ButtonTwoState) findViewById(R.id.btn_ip_address);
 		mBtnIpaddress.setTwoStateDrawble(R.drawable.btn_edit, R.drawable.btn_ok);
 		mBtnIpaddress.setOnTwoStateSwitchListener(mOnBtnEidtSwitchListener);
-		
+		mBtnSelectUser=(ButtonTwoState) findViewById(R.id.btn_select_user);
+		mBtnSelectUser.setTwoStateDrawble(R.drawable.btn_edit, R.drawable.btn_ok);
+		mBtnSelectUser.setOnTwoStateSwitchListener(mOnBtnEidtSwitchListener);
 		
 		mImageSendMessage = (ImageViewTwoState)findViewById(R.id.img_send_message);
 		mImageSendMessage.setTwoStateDrawble(R.drawable.btn_checked_no, R.drawable.btn_checked_yes);
@@ -177,6 +189,7 @@ public class ActivitySettings extends BaseActivity{
 					mApp.getConfigManager().saveFunctionDownload(false);
 				}
 				break;
+			
 			}
 		}
 	};
@@ -299,6 +312,15 @@ public class ActivitySettings extends BaseActivity{
 //					mEditWarnningNumber.setBackgroundResource(R.drawable.input_box_bg);
 				}
 				break;
+			case R.id.btn_select_user:
+				Log.i(LOG_TAG, "click select_op");
+				if(isPositive){
+					mSpinnerSelectUser.setEnabled(false);
+					
+				}
+				else{
+					mSpinnerSelectUser.setEnabled(true);
+				}
 		
 			}
 		}
@@ -333,6 +355,17 @@ public class ActivitySettings extends BaseActivity{
 		mEditWarnningNumber.setText(warnningNumber);
 		String ipaddress=mApp.getConfigManager().getIpAddress();
 		mEditipaddress.setText(ipaddress);
+		ArrayAdapter<String> useradapter=new ArrayAdapter<String>(mApp, R.layout.user_list_item,R.id.user_item, userlist);
+		mSpinnerSelectUser.setAdapter(useradapter);
+		for(int i=0;i<userlist.size();i++){
+			
+			if(userlist.get(i).equals(mApp.getConfigManager().getSelectUser())){
+		mSpinnerSelectUser.setSelection(i);
+				break;
+		}
+		}
+		Log.i(LOG_TAG, "stat user before now");
+	
 	}
 	
 	@Override
