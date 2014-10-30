@@ -15,7 +15,6 @@ import com.fax.utils.view.RadioGroupStateFragmentBinder;
 import com.fgc.autocall.R;
 import com.fgc.autocall.Tools.StringTools;
 import com.fgc.autocall.Tools.Tools;
-import com.fgc.autocall.fragment.PhoneFragment;
 import com.fgc.autocall.ui.component.ButtonTwoState;
 import com.fgc.autocall.ui.component.ImageViewTwoState;
 
@@ -93,12 +92,6 @@ public class ActivitySettings extends BaseActivity{
 		
 		mImageSendMessage = (ImageViewTwoState)findViewById(R.id.img_send_message);
 		mImageSendMessage.setTwoStateDrawble(R.drawable.btn_checked_no, R.drawable.btn_checked_yes);
-		
-		mBtnPhone=(ButtonTwoState) findViewById(R.id.btn_phone);
-		mBtnPhone.setOnTwoStateSwitchListener(mOnBtnEidtSwitchListener);
-		
-		mBtnDownload=(ButtonTwoState) findViewById(R.id.btn_download);
-		mBtnDownload.setOnTwoStateSwitchListener(mOnBtnEidtSwitchListener);
 		
 		if (mApp.getConfigManager().isSendMessage())
 		{	
@@ -306,12 +299,7 @@ public class ActivitySettings extends BaseActivity{
 //					mEditWarnningNumber.setBackgroundResource(R.drawable.input_box_bg);
 				}
 				break;
-			case R.id.btn_phone:
-				Log.e("LOG_TAG","-----------btn_phone----");
-				new PhoneFragment();
-				break;
-			case R.id.btn_download:
-				break;
+		
 			}
 		}
 		

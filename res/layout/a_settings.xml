@@ -295,6 +295,61 @@
     
 </LinearLayout>
 
+
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/area_margin_left"
+    android:layout_marginRight="@dimen/area_margin_left"
+    android:layout_marginTop="10dp"
+    android:paddingTop="@dimen/area_padding_top"
+    android:paddingBottom="@dimen/area_padding_top"
+    android:background="@drawable/area_round_bg"
+    >
+      <TextView 
+        android:layout_width="match_parent"
+      	android:layout_height="wrap_content"
+      	android:textColor="@color/normal_text_color"
+      	android:paddingLeft="@dimen/common_title_padding_left"
+      	android:text="用户"
+      />
+      <LinearLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:paddingTop="8dp"
+    	android:paddingLeft="@dimen/common_title_padding_left"
+    	android:orientation="horizontal"
+          >
+        <Spinner
+            android:id="@+id/select_yonghu"
+	        android:layout_width="0dp"
+	        android:layout_height="28dp"
+	        android:layout_weight="1"
+	        android:background="@drawable/input_box_bg"
+	        android:textColor="@color/input_text"
+	        android:textSize="@dimen/txt_size_px_20"
+	        android:textColorHint="#8d8d90"
+	        android:paddingTop="0dp"
+	        android:paddingBottom="0dp"
+	        android:gravity="center_vertical"
+	            />
+        <com.fgc.autocall.ui.component.ButtonTwoState
+	        android:id="@+id/btn_select_yonghu"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:layout_gravity="right|center_vertical"
+	        android:layout_marginRight="@dimen/title_padding"
+	        android:layout_marginLeft="@dimen/title_padding"
+	        android:background="@drawable/btn_edit"
+	        />   
+          
+      </LinearLayout>
+    
+    
+</LinearLayout>
+
 <LinearLayout 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -375,77 +430,6 @@
     
 </LinearLayout> 
 
-<LinearLayout 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginLeft="@dimen/area_margin_left"
-    android:layout_marginRight="@dimen/area_margin_left"
-    android:layout_marginTop="10dp"
-    android:paddingTop="@dimen/area_padding_top"
-    android:paddingBottom="@dimen/area_padding_top"
-    android:background="@drawable/area_round_bg"
-    >
-      <TextView 
-        android:layout_width="match_parent"
-      	android:layout_height="wrap_content"
-      	android:paddingLeft="@dimen/common_title_padding_left"
-      	android:textColor="@color/normal_text_color"
-      	android:text="设置"
-      />
-      <LinearLayout 
-        android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
-    	android:paddingTop="6dp"
-    	android:paddingBottom="6dp"
-    	android:paddingLeft="@dimen/common_title_padding_left"
-    	android:orientation="horizontal"
-          >
-	    
 
-        <TextView 
-            android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center_vertical"
-	        android:layout_marginLeft="8dp"
-	        android:text="电话"
-            />
-       <com.fgc.autocall.ui.component.ButtonTwoState
-	        android:id="@+id/btn_phone"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:gravity="center"
-	        android:layout_gravity="right|center_vertical"
-	        android:layout_marginRight="@dimen/title_padding"
-	        android:layout_marginLeft="@dimen/title_padding"
-	        android:background="@drawable/btn_edit"
-	        />
-       
-        <TextView 
-            android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center_vertical"
-	        android:layout_marginLeft="8dp"
-	        android:text="下载"
-            />
-       <com.fgc.autocall.ui.component.ButtonTwoState
-	        android:id="@+id/btn_download"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:gravity="center"
-	        android:layout_gravity="right|center_vertical"
-	        android:layout_marginRight="@dimen/title_padding"
-	        android:layout_marginLeft="@dimen/title_padding"
-	        android:background="@drawable/btn_edit"
-	        />
-        
-        
-          
-       
-	        
-        
-      </LinearLayout>
-    
-</LinearLayout> 
 
 </LinearLayout>
