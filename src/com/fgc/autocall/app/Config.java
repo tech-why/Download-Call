@@ -18,6 +18,7 @@ public class Config {
 	//≈‰÷√ip
 	static public final String CONFIG_KEY_IP="ip_address";
 	static public final String CONFIG_KEY_USER="select_user";
+	static public final String CONFIG_KEY_USER_ID="select_user_id";
 	
 	public static void initConfig(Context context){
 		if(FileConfig.Instance() == null)

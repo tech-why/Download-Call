@@ -104,6 +104,12 @@ public class ConfigManager {
 	public String getSelectUser(){
 		return Config.getValue(Config.CONFIG_KEY_USER, null);
 	}
+	public void saveSelectUserID(String id){
+		Config.setValue(Config.CONFIG_KEY_USER_ID, id);
+	}
+	public String getSelectUserID(){
+		return Config.getValue(Config.CONFIG_KEY_USER_ID, null);
+	}
 	public void saveFunctionSendMessage(boolean isSend)
 	{
 		if (isSend)

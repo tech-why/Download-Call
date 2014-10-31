@@ -1,5 +1,6 @@
 package com.fgc.autocall.ui;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -20,6 +21,7 @@ import com.fgc.autocall.R;
 import com.fgc.autocall.Tools.StringTools;
 import com.fgc.autocall.Tools.Tools;
 import com.fgc.autocall.Tools.getData;
+import com.fgc.autocall.app.json.SqNameEntity;
 import com.fgc.autocall.ui.component.ButtonTwoState;
 import com.fgc.autocall.ui.component.ImageViewTwoState;
 
@@ -47,7 +49,7 @@ public class ActivitySettings extends BaseActivity{
 	private ImageViewTwoState mImageSendMessage;
 	private ImageViewTwoState mImageCall;
 	private ImageViewTwoState mImageDownload;
-	private List<String> userlist=getData.getUserlist();
+	private List<SqNameEntity> userlist=getData.getUserlist();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -355,11 +357,15 @@ public class ActivitySettings extends BaseActivity{
 		mEditWarnningNumber.setText(warnningNumber);
 		String ipaddress=mApp.getConfigManager().getIpAddress();
 		mEditipaddress.setText(ipaddress);
-		ArrayAdapter<String> useradapter=new ArrayAdapter<String>(mApp, R.layout.user_list_item,R.id.user_item, userlist);
+		List<String> namelist=new ArrayList<String>();
+		for(int i=0;i<userlist.size();i++){
+			namelist.add(userlist.get(i).getName());
+		}
+		ArrayAdapter<String> useradapter=new ArrayAdapter<String>(mApp, R.layout.user_list_item,R.id.user_item, namelist);
 		mSpinnerSelectUser.setAdapter(useradapter);
 		for(int i=0;i<userlist.size();i++){
 			
-			if(userlist.get(i).equals(mApp.getConfigManager().getSelectUser())){
+			if(userlist.get(i).getId().equals(mApp.getConfigManager().getSelectUserID())){
 		mSpinnerSelectUser.setSelection(i);
 				break;
 		}

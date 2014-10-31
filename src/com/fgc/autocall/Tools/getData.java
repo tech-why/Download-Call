@@ -8,11 +8,8 @@ import com.fgc.autocall.app.json.SqNameEntity;
 public class getData {
 	
 	
-	public static List<String> getUserlist(){
-		List<String> sqnamelist=new ArrayList<String>();
-		sqnamelist.add("aa");
-		sqnamelist.add("bb");
-		sqnamelist.add("cc");
+	public static List<SqNameEntity> getUserlist(){
+		List<SqNameEntity> sqnamelist=new ArrayList<SqNameEntity>();
 		return  sqnamelist;
 	}
 
