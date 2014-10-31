@@ -51,7 +51,7 @@ public class ActivitySettings extends BaseActivity{
 	private ImageViewTwoState mImageSendMessage;
 	private ImageViewTwoState mImageCall;
 	private ImageViewTwoState mImageDownload;
-	private List<SqNameEntity> userlist=getData.getUserlist();
+	private List<SqNameEntity> userlist=getData.getUserlist(this);
 	int selectpostion=0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
