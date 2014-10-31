@@ -457,12 +457,13 @@ public class ActivitySettings extends BaseActivity{
 	public void getdata(Context context){
 		String url=mApp.getConfigManager().getIpAddress();
 		if(url!=null){
-	  new GsonAsyncTask<List<SqNameEntity>>(context,url+"/jeewx/sqNameController.do?alluser") {
+	  new GsonAsyncTask<List<SqNameEntity>>(context,"http://"+url+"/jeewx/sqNameController.do?alluser") {
 		@Override
 		protected void onPostExecuteSuc(List<SqNameEntity> result) {
-			System.out.println(result);
+			
 			// TODO Auto-generated method stub
 			userlist=result;
+		
 			
 		}
 		
