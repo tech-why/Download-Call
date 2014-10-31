@@ -10,6 +10,8 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,7 +52,7 @@ public class ActivitySettings extends BaseActivity{
 	private ImageViewTwoState mImageCall;
 	private ImageViewTwoState mImageDownload;
 	private List<SqNameEntity> userlist=getData.getUserlist();
-	
+	int selectpostion=0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);	
@@ -83,7 +85,21 @@ public class ActivitySettings extends BaseActivity{
 		
 		mSpinnerSelectUser=(Spinner) findViewById(R.id.select_user);
 		mSpinnerSelectUser.setEnabled(false);
-		
+		mSpinnerSelectUser.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				// TODO Auto-generated method stub
+				selectpostion=arg2;
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		mBtnInternal= (ButtonTwoState)findViewById(R.id.btn_call_internal);
 		mBtnInternal.setTwoStateDrawble(R.drawable.btn_edit, R.drawable.btn_ok);
@@ -318,6 +334,8 @@ public class ActivitySettings extends BaseActivity{
 				Log.i(LOG_TAG, "click select_op");
 				if(isPositive){
 					mSpinnerSelectUser.setEnabled(false);
+					mApp.getConfigManager().saveSelectUser(userlist.get(selectpostion).getName());
+					mApp.getConfigManager().saveSelectUserID(userlist.get(selectpostion).getId());
 					
 				}
 				else{
