@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -18,11 +19,11 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
+import com.fax.utils.task.GsonAsyncTask;
 import com.fax.utils.view.RadioGroupStateFragmentBinder;
 import com.fgc.autocall.R;
 import com.fgc.autocall.Tools.StringTools;
 import com.fgc.autocall.Tools.Tools;
-import com.fgc.autocall.Tools.getData;
 import com.fgc.autocall.app.json.SqNameEntity;
 import com.fgc.autocall.ui.component.ButtonTwoState;
 import com.fgc.autocall.ui.component.ImageViewTwoState;
@@ -51,13 +52,13 @@ public class ActivitySettings extends BaseActivity{
 	private ImageViewTwoState mImageSendMessage;
 	private ImageViewTwoState mImageCall;
 	private ImageViewTwoState mImageDownload;
-	private List<SqNameEntity> userlist=getData.getUserlist(this);
+	private List<SqNameEntity> userlist=new ArrayList<SqNameEntity>();
 	int selectpostion=0;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);	
 		setContentView(R.layout.a_settings);
-		
+		getdata(this);
 		initView();
 	}
 
@@ -449,4 +450,20 @@ public class ActivitySettings extends BaseActivity{
 			}
 		}
 	};
+	public void getdata(Context context){
+		String url=mApp.getConfigManager().getIpAddress();
+		if(url!=null){
+	  new GsonAsyncTask<List<SqNameEntity>>(context,url+"/jeewx/sqNameController.do?alluser") {
+		@Override
+		protected void onPostExecuteSuc(List<SqNameEntity> result) {
+			System.out.println(result);
+			// TODO Auto-generated method stub
+			userlist=result;
+			
+		}
+	
+	};
+	}
+	}
+	
 }
