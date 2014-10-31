@@ -58,12 +58,13 @@ public class ActivitySettings extends BaseActivity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);	
 		setContentView(R.layout.a_settings);
-		getdata(this);
+		
 		initView();
 	}
 
 	private void initView()
 	{
+		
 		mLayoutTitleBar = (RelativeLayout)findViewById(R.id.title_bar);
 		Button btnLeft = (Button)mLayoutTitleBar.findViewById(R.id.title_btn_left);
 		btnLeft.setOnClickListener(mOnClickListener);
@@ -322,6 +323,7 @@ public class ActivitySettings extends BaseActivity{
 					String value = mEditipaddress.getText().toString();
 				
 						mApp.getConfigManager().savaIpAddress(value);
+						fillEditBoxByDefaultValue();
 				
 				
 				}
@@ -350,6 +352,7 @@ public class ActivitySettings extends BaseActivity{
 	
 	private void fillEditBoxByDefaultValue()
 	{
+		getdata(this);
 		int internal = mApp.getConfigManager().getCallInternal();
 		mEditInternal.setText(String.valueOf(internal));
 		
@@ -461,7 +464,7 @@ public class ActivitySettings extends BaseActivity{
 			userlist=result;
 			
 		}
-	
+		
 	};
 	}
 	}
