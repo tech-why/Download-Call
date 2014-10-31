@@ -58,7 +58,7 @@ public class ActivitySettings extends BaseActivity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);	
 		setContentView(R.layout.a_settings);
-		
+		getdata(this);
 		initView();
 	}
 
@@ -323,6 +323,7 @@ public class ActivitySettings extends BaseActivity{
 					String value = mEditipaddress.getText().toString();
 				
 						mApp.getConfigManager().savaIpAddress(value);
+						getdata(ActivitySettings.this);
 						fillEditBoxByDefaultValue();
 				
 				
@@ -352,7 +353,7 @@ public class ActivitySettings extends BaseActivity{
 	
 	private void fillEditBoxByDefaultValue()
 	{
-		getdata(this);
+
 		int internal = mApp.getConfigManager().getCallInternal();
 		mEditInternal.setText(String.valueOf(internal));
 		
