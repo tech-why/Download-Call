@@ -52,11 +52,8 @@ public class OneByOneWork {
 	private DownloadManager dowanloadmanager = null; 
     private long lastDownloadId = 0; 
     private List<SqDownloadEntity> sqldownloadlist=new ArrayList<SqDownloadEntity>();
-    
+    private List<String> iscompletelist=new ArrayList<String>();
     private ActivityMain activityMain;
-   
-    
-    
 	public OneByOneWork(Context context, Looper looper)
 	{
 		mContext = context;
@@ -102,18 +99,11 @@ public class OneByOneWork {
 	public void startWork(boolean isDownload,boolean isCall, boolean isSendMessage)
 	{
 	
-		
 		mIsDownload=isDownload;
 		mIsCall = isCall;
 		mIsSendMessage = isSendMessage;
 		final File dlFile = new File(mContext.getExternalCacheDir(), FileName);
 		if(mIsDownload&&sqldownloadlist.size()!=0){
-			
-//			new AlertDialog.Builder(mContext).setInverseBackgroundForced(true).setTitle("提示").setMessage("检测到未下载，是否需要下载？")
-//				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-//					public void onClick(DialogInterface dialog, int which) {
-					
-//			           for(Object a :pathlist){
 			
 			     	   for(i=0;i<sqldownloadlist.size();i++){
 						final Downloader downloader=Downloader.continueDownload(new DownloadInfo(dlFile,sqldownloadlist.get(i).getUrl()));
@@ -122,7 +112,12 @@ public class OneByOneWork {
 								,new DownloaderShower.CompleteListener() {
 									public void onComplete(File downloadFile) {
 										if(i==sqldownloadlist.size()){
-											mWorkHandler.sendEmptyMessageDelayed(MSG_WHAT_CALL, 3000);
+											iscompletelist.add(i+"");
+											if(iscompletelist.size()==sqldownloadlist.size()){
+												mWorkHandler.sendEmptyMessageDelayed(MSG_WHAT_CALL, 3000);
+											}
+										
+											
 										}
 									}
 								});
@@ -135,13 +130,6 @@ public class OneByOneWork {
 						
 						
 					}
-//					}
-//				})
-//				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-//					public void onClick(DialogInterface dialog, int which) {
-//						mWorkHandler.sendEmptyMessageDelayed(MSG_WHAT_CALL, 3000);
-//					}
-//					}).create().show();
 			}else{
 				if(sqldownloadlist.size()==0){
 					Toast.makeText(mContext, "当前用户没有分配下载链接请在服务端分配下载",3000).show();
@@ -154,9 +142,18 @@ public class OneByOneWork {
 			Log.w(LOG_TAG, "not start, wrappers size is 0");
 			return;
 		}
-		
-		
-//		mWorkHandler.sendEmptyMessageDelayed(MSG_WHAT_CALL, 3000);
+	}
+	
+	public void startWork(boolean isCall)
+	{
+		if (mContactPersonWrappers.size()==0)
+		{
+			Log.w(LOG_TAG, "not start, wrappers size is 0");
+			return;
+		}
+		mIsCall = isCall;
+		mIsSendMessage = false;
+		mWorkHandler.sendEmptyMessageDelayed(MSG_WHAT_CALL, 3000);
 	}
 	
 	public List<SqDownloadEntity> getSqldownloadlist() {

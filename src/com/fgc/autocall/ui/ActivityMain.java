@@ -212,10 +212,12 @@ public class ActivityMain extends BaseActivity {
 				
 			}
 			if(isrecall==false){
+				
+				
 				starttime = System.currentTimeMillis();
 				Log.w("why", "-----------------------------------"+starttime + "开始时间"+"-----------------------------------");
-				mOneByOneWork.startWork(false, mApp
-						.getConfigManager().isCall(),false);
+				mOneByOneWork.startWork(mApp.getConfigManager().isCall());
+						
 				isrecall=true;
 			}
 			
@@ -386,6 +388,8 @@ public class ActivityMain extends BaseActivity {
 					if (imsi != null) {
 						IMSI = imsi;
 						issim = true;
+						mOneByOneWork = new OneByOneWork(ActivityMain.this, getMainLooper());
+						mOneByOneWork.setOnWorkingObserver(mOnWorkingObserver);
 						mContactListViewWrapper = new ContactsListViewWrapper(
 								ActivityMain.this, notice, listView);
 						mContactListViewWrapper.add(mContactPersonWrappers);
@@ -395,6 +399,7 @@ public class ActivityMain extends BaseActivity {
 					}
 					if (nowimsi != null) {
 						nowimsi = IMSI;
+						
 						int internal = mApp.getConfigManager()
 								.getCallInternal();
 						mOneByOneWork.setCallInternal(internal);
@@ -444,7 +449,6 @@ public class ActivityMain extends BaseActivity {
 		 * CallLog.Calls.TYPE, CallLog.Calls.DATE }, "type=2", null,
 		 * CallLog.Calls.DEFAULT_SORT_ORDER);
 		 */
-	
 			mContactPersonWrapper.clear(); 
 	
 		while (cursor.moveToNext()) {
@@ -459,8 +463,10 @@ public class ActivityMain extends BaseActivity {
 			person.setTelephone(cursor.getString(1));
 			mContactPersonWrapper.add(new ContactPersonWrapper(person));
 			}
-	
+				
 		}
+		mOneByOneWork = new OneByOneWork(ActivityMain.this, getMainLooper());
+		mOneByOneWork.setOnWorkingObserver(mOnWorkingObserver);
 		mContactListViewWrapper = new ContactsListViewWrapper(
 				ActivityMain.this, notice, listView);
 		mContactListViewWrapper.add(mContactPersonWrapper);
@@ -528,7 +534,7 @@ public class ActivityMain extends BaseActivity {
 						Log.i(LOG_TAG, "got contacts file");
 						mLayoutWraning.setVisibility(View.GONE);
 						List<SqTelEntity> sqltellist = result.sqltellist;
-
+						
 						mContactPersonWrappers.clear();
 						for (SqTelEntity person : sqltellist) {
 							mContactPersonWrappers
